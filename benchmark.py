@@ -186,9 +186,9 @@ ground_truths = {'leather sofa': 27.22, 'desk': 21.71,  # craigslist
 
 
 def main():
-    # constraints = [('error', 0.1, 1), ('error', 0.1, 10000), ('runtime', 10, 1), ('runtime', 10, 10000), ('feedback', 5, 1), ('feedback', 5, 10000)]  # ('runtime', 10, 10), ('feedback', 5, 100), ('error', 0.1, 10)  # (constrained metric, value, ratio versus runtime)
+    constraints = [('error', 0.1, 1), ('error', 0.1, 10000), ('runtime', 10, 1), ('runtime', 10, 10000), ('feedback', 5, 1), ('feedback', 5, 10000)]  # ('runtime', 10, 10), ('feedback', 5, 100), ('error', 0.1, 10)  # (constrained metric, value, ratio versus runtime)
     # constraints = [('error', 0.05, 1), ('error', 0.05, 10), ('error', 0.05, 100), ('error', 0.05, 1000), ('error', 0.05, 10000), ('error', 0.1, 1), ('error', 0.1, 10), ('error', 0.1, 100), ('error', 0.1, 1000), ('error', 0.1, 10000), ('error', 0.5, 1), ('error', 0.5, 10), ('error', 0.5, 100), ('error', 0.5, 1000), ('error', 0.5, 10000)]
-    constraints = [('error', 0.1, 1)]
+    # constraints = [('error', 0.1, 1)]
     methods = ['local']
     # methods = ['local', 'random', 'ordered', 'naive']  # ['local', ('cost', 1), ('cost', 2), ('cost', 5), 'rl', 'random', 'ordered', 'naive']
     use_cache = False
@@ -226,7 +226,7 @@ def main():
     #     "select * from images where nl(img, 'blue chair') limit 10",
     #     "select max(time) from images, furniture where nl(img, 'blue chair') and images.aid = furniture.aid"
     ]
-    # sqls_craigslist = queries_craigslist()
+    sqls_craigslist = queries_craigslist()
     if shuffle_queries:
         random.shuffle(sqls_craigslist)
         for sql in sqls_craigslist:
@@ -258,7 +258,7 @@ def main():
     #     "select sum(viewcount) from youtube where nl(audio, 'voices') and nl(description_u, 'cooking')",
     #     "select sum(viewcount) from youtube where nl(audio, 'voices') or nl(description_u, 'cooking')"
     ]
-    # sqls_youtubeaudios = queries_youtubeaudios()
+    sqls_youtubeaudios = queries_youtubeaudios()
     if shuffle_queries:
         random.shuffle(sqls_youtubeaudios)
         for sql in sqls_youtubeaudios:
