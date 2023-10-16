@@ -29,6 +29,7 @@ pip install -r requirements.txt
 # Install CLIP (on a CUDA GPU machine). CUDA Toolkit required.
 pip install git+https://github.com/openai/CLIP.git
 # Run our benchmark.
+mkdir log
 python benchmark.py
 ```
 
